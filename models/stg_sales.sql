@@ -1,0 +1,9 @@
+
+    select
+        SS_CUSTOMER_SK,
+        SS_SOLD_TIME_SK,
+        SS_EXT_SALES_PRICE,
+        dd.D_DATE
+    from SNOWFLAKE_SAMPLE_DATA."TPCDS_SF100TCL".STORE_SALES as ss
+    inner join SNOWFLAKE_SAMPLE_DATA."TPCDS_SF100TCL".DATE_DIM as dd
+    on ss.SS_SOLD_DATE_SK = dd.D_DATE_SK and dd.D_YEAR = 1999

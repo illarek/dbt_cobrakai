@@ -11,16 +11,18 @@ sales as (
     select * from {{ ref('stg_sales') }}
 ),
 customer_sales as (
-    select *
+    select 
+      *
     from customers c
     inner join sales s on c.C_CUSTOMER_SK=s.SS_CUSTOMER_SK
     limit 1000
 )
 select
+    C_CUSTOMER_SK as CUSTOMER_SK,
     C_FIRST_NAME,
     C_LAST_NAME,
     C_EMAIL_ADDRESS,
     count(SS_EXT_SALES_PRICE) as QTY,
     sum(SS_EXT_SALES_PRICE) AS AMOUNT
 from customer_sales
-group by C_FIRST_NAME,C_LAST_NAME,C_EMAIL_ADDRESS
+group by CUSTOMER_SK,C_FIRST_NAME,C_LAST_NAME,C_EMAIL_ADDRESS

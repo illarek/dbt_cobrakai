@@ -1,0 +1,12 @@
+
+version: 2
+
+models:
+    - name: customers_sales
+      description: "A starter dbt model"
+      columns:
+          - name: CUSTOMER_SK
+            description: "Resultado de la consulta de ventas por cliente"
+            tests:
+                - unique
+                - not_null

@@ -3,10 +3,10 @@ version: 2
 
 models:
     - name: customers_sales
-      description: "A starter dbt model"
+      description: "pruebas" 
       columns:
           - name: CUSTOMER_SK
-            description: "Resultado de la consulta de ventas por cliente"
+            description: "Llave del ususario"
             tests:
                 - unique
                 - not_null
